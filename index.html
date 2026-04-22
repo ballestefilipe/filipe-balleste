@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filipe Ballesté — Brand Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #0e0e0e;
+    --ink-mid: #3a3a3a;
+    --ink-low: #8a8a8a;
+    --paper:   #f5f3ee;
+    --paper2:  #ede9e0;
+    --accent:  #c8372d;
+    --accent2: #1a3a5c;
+    --line:    #d4cfc5;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'DM Sans', sans-serif;
+    --mono:  'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(245,243,238,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 3rem;
+    border-right: 1px solid var(--line);
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-low);
+    margin-bottom: 1.8rem;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.0;
+    margin-bottom: 2rem;
+    color: var(--ink);
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-statement {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--ink-mid);
+    max-width: 420px;
+    margin-bottom: 3rem;
+    border-left: 2px solid var(--accent);
+    padding-left: 1.2rem;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .hero-cta:hover { color: var(--accent); border-color: var(--accent); }
+  .hero-right {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 4rem 3rem;
+    background: var(--paper2);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right::before {
+    content: '"';
+    position: absolute; top: -2rem; left: 2rem;
+    font-family: var(--serif);
+    font-size: 20rem;
+    color: var(--line);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .hero-manifesto {
+    position: relative; z-index: 1;
+  }
+  .hero-manifesto p {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--ink-mid);
+    margin-bottom: 1rem;
+  }
+  .hero-manifesto cite {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-low);
+    font-style: normal;
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 0; margin-top: 3rem;
+    border-top: 1px solid var(--line);
+    padding-top: 2rem;
+  }
+  .stat { text-align: center; padding: 0 1rem; }
+  .stat:not(:last-child) { border-right: 1px solid var(--line); }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--ink);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-low);
+  }
+
+  /* ── SECTION WRAPPER ── */
+  section { padding: 6rem 3rem; }
+  .section-header {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-low);
+    letter-spacing: 0.08em;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.1;
+  }
+  .section-line {
+    flex: 1; height: 1px;
+    background: var(--line);
+    margin-left: 1rem;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  #about .section-title { color: var(--paper); }
+  #about .section-num { color: var(--ink-low); }
+  #about .section-line { background: #333; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-body {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: #ccc;
+  }
+  .about-body strong { color: var(--paper); font-weight: 400; }
+  .about-right {}
+  .about-agencies {
+    margin-bottom: 3rem;
+  }
+  .about-agencies-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-low);
+    margin-bottom: 1rem;
+  }
+  .agency-list {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+  }
+  .agency-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #333;
+    color: #aaa;
+    border-radius: 2px;
+  }
+  .about-fact {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #222;
+  }
+  .about-fact-icon {
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .about-fact-text {
+    font-size: 0.88rem;
+    color: #aaa;
+    line-height: 1.5;
+  }
+  .about-fact-text strong { color: var(--paper); font-weight: 500; }
+
+  /* ── WORK ── */
+  #work { padding-top: 6rem; }
+  .work-intro {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--ink-mid);
+    max-width: 560px;
+    margin-bottom: 5rem;
+    line-height: 1.7;
+  }
+
+  .case {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    padding: 4rem 0;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .case:hover { background: rgba(0,0,0,0.015); }
+
+  .case-meta {
+    padding-right: 3rem;
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+  .case-num {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-low);
+    margin-bottom: 0.6rem;
+  }
+  .case-client {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+  .case-campaign {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--ink-mid);
+    margin-bottom: 1rem;
+  }
+  .case-agency {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-low);
+    margin-bottom: 1rem;
+  }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    background: var(--paper2);
+    color: var(--ink-mid);
+    border-radius: 2px;
+  }
+  .tag.award {
+    background: var(--accent);
+    color: white;
+  }
+
+  .case-body { padding-left: 3rem; border-left: 1px solid var(--line); }
+
+  .case-block { margin-bottom: 2.2rem; }
+  .case-block-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .case-block-text {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .case-block-text.large {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .case-result {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: var(--paper2);
+    border-left: 3px solid var(--accent);
+  }
+  .case-result-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .case-result-text {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ── APPROACH ── */
+  #approach {
+    background: var(--paper2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+  .approach-item {}
+  .approach-step {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-low);
+    margin-bottom: 0.8rem;
+  }
+  .approach-heading {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .approach-text {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience {}
+  .exp-list {}
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .exp-period {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-low);
+    padding-top: 3px;
+  }
+  .exp-right {}
+  .exp-role {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .exp-company {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--accent2);
+    margin-bottom: 0.6rem;
+  }
+  .exp-clients {
+    font-size: 0.82rem;
+    color: var(--ink-low);
+    line-height: 1.5;
+  }
+  .exp-highlight {
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 8rem 3rem;
+  }
+  .contact-pre {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-low);
+    margin-bottom: 1.5rem;
+  }
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--paper);
+  }
+  .contact-heading em { font-style: italic; color: var(--accent); }
+  .contact-sub {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 3rem;
+    max-width: 440px;
+    margin-left: auto; margin-right: auto;
+    line-height: 1.6;
+  }
+  .contact-links {
+    display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+  }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paper);
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    border: 1px solid #333;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover { background: var(--accent); border-color: var(--accent); }
+  .contact-link.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .contact-link.primary:hover { background: #a82a22; border-color: #a82a22; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--line);
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink-low);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.4rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 5rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-right { padding: 3rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .case { grid-template-columns: 1fr; }
+    .case-meta { position: static; padding-right: 0; margin-bottom: 2rem; }
+    .case-body { padding-left: 0; border-left: none; border-top: 1px solid var(--line); padding-top: 2rem; }
+    .approach-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .contact-links { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Filipe Ballesté</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left reveal">
+    <p class="hero-eyebrow">Brand Strategist · 10+ years · EU Citizen</p>
+    <h1 class="hero-name">Filipe<br><em>Ballesté</em></h1>
+    <p class="hero-statement">
+      Most brands don't lack ideas.<br>They lack direction.<br>
+      And direction only matters when it reaches the street.
+    </p>
+    <a href="#work" class="hero-cta">View selected work →</a>
+  </div>
+  <div class="hero-right reveal">
+    <div class="hero-manifesto">
+      <p>
+        "I see the strategist as the filter between the culture we live in and the culture of the brand. Make things people want. Don't make people want things."
+      </p>
+      <cite>— Filipe Ballesté</cite>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Years</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2×</span>
+          <span class="stat-label">Effie Shortlist</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">8</span>
+          <span class="stat-label">Top Agencies</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title" style="color:var(--paper)">About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid reveal">
+    <div>
+      <p class="about-body">
+        I'm a brand strategist born in Rio de Janeiro, raised by the sea — and shaped by a decade inside some of the world's most creative and demanding agency environments.<br><br>
+        My work sits at the intersection of <strong>human behaviour and creative direction</strong>. I don't just diagnose the problem — I build the brief that unlocks the idea. I operate between macro and micro: brand territory definition, creative strategy, and the rigorous problem framing that makes great work possible.<br><br>
+        I've led strategy across <strong>branding, CRM, digital, health, and live marketing</strong> — always with the same conviction: clarity is the most creative act a strategist can perform.
+      </p>
+    </div>
+    <div class="about-right">
+      <div class="about-agencies">
+        <p class="about-agencies-label">Agencies</p>
+        <div class="agency-list">
+          <span class="agency-tag">AlmapBBDO</span>
+          <span class="agency-tag">Dentsu Creative</span>
+          <span class="agency-tag">FCB Brasil</span>
+          <span class="agency-tag">Ogilvy</span>
+          <span class="agency-tag">Havas Health</span>
+          <span class="agency-tag">BETC</span>
+          <span class="agency-tag">DDB</span>
+          <span class="agency-tag">Front360</span>
+        </div>
+      </div>
+      <div class="about-fact">
+        <span class="about-fact-icon">★</span>
+        <p class="about-fact-text"><strong>2× Effie Awards Brazil Shortlist</strong> — for strategic work that proved results, not just intent.</p>
+      </div>
+      <div class="about-fact">
+        <span class="about-fact-icon">→</span>
+        <p class="about-fact-text"><strong>EU citizen, Portuguese passport.</strong> Based in São Paulo, available to relocate to Lisbon immediately.</p>
+      </div>
+      <div class="about-fact">
+        <span class="about-fact-icon">◎</span>
+        <p class="about-fact-text">Fluent in <strong>English and Portuguese</strong>. Advanced Spanish. Intermediate French. Basic Dutch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Selected Work</h2>
+    <div class="section-line"></div>
+  </div>
+  <p class="work-intro reveal">
+    Five cases. Each one a different problem, a different category, a different strategic challenge. What they share: the belief that the right diagnosis is worth more than any idea.
+  </p>
+
+  <!-- CASE 1: Sub da Quebrada -->
+  <div class="case reveal">
+    <div class="case-meta">
+      <p class="case-num">Case 01</p>
+      <h3 class="case-client">Subway</h3>
+      <p class="case-campaign">"Sub da Quebrada"</p>
+      <p class="case-agency">Dentsu Creative · 2022</p>
+      <div class="case-tags">
+        <span class="tag">Branding</span>
+        <span class="tag">Cultural Strategy</span>
+        <span class="tag award">Effie Shortlist</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="case-block">
+        <p class="case-block-label">Context</p>
+        <p class="case-block-text">Subway had become just another fast-food chain. Disconnected from real life, talking only about products. A partnership with Gerando Falcões — a Brazilian social organisation — emerged as an opportunity to reconnect with culture through something lasting.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">The Problem</p>
+        <p class="case-block-text">The sandwich was inspired by peripheral street culture, but wasn't born from it. The <em>quebrada</em> (Brazil's periphery) doesn't need more brands speaking on its behalf.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">Insight</p>
+        <p class="case-block-text large">The quebrada doesn't need more brands talking about it. It needs space to show its own collective, economic and creative power.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">Strategy</p>
+        <p class="case-block-text">Instead of using Subway's product to enter the quebrada, we inverted the model: we made the quebrada cross the bridge — giving real residents voice and space across every Subway store, every TV spot, every social post.</p>
+      </div>
+      <div class="case-result">
+        <p class="case-result-label">Recognition</p>
+        <p class="case-result-text">Effie Awards Brazil Shortlist. A campaign that didn't just launch a sandwich — it changed who owned the conversation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 2: Kwai BBBom -->
+  <div class="case reveal">
+    <div class="case-meta">
+      <p class="case-num">Case 02</p>
+      <h3 class="case-client">Kwai</h3>
+      <p class="case-campaign">"BBBom Pra Kwai"</p>
+      <p class="case-agency">BETC · 2021</p>
+      <div class="case-tags">
+        <span class="tag">Brand Strategy</span>
+        <span class="tag">Entertainment</span>
+        <span class="tag award">Effie Shortlist</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="case-block">
+        <p class="case-block-label">Context</p>
+        <p class="case-block-text">Kwai, a short-video platform, shifted from sponsoring A Fazenda to becoming the main BBB (Brazil's biggest reality show) sponsor. The challenge: shake off the perception that Kwai was an older, less cool platform.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">The Problem</p>
+        <p class="case-block-text">The BBB audience already had an impression of Kwai as the platform that "goes with A Fazenda, not BBB." We needed to break that association and build relevance fast.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">Insight</p>
+        <p class="case-block-text large">People think they know what kind of content Kwai has. But only those inside the platform know how much more space and depth it gives to entertainment.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">Strategy</p>
+        <p class="case-block-text">Turn Kwai into the hub for BBB content, memes and extended conversation. The concept "BBBom Pra Kwai" — a play on a Brazilian expression — tied everything together, showing that on Kwai, BBB gets much more volume.</p>
+      </div>
+      <div class="case-result">
+        <p class="case-result-label">Recognition</p>
+        <p class="case-result-text">Effie Awards Brazil Shortlist. The campaign ran across the full BBB season, sustained by activation moments that followed the programme's interest curve.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 3: Sazón Pipoca Neles -->
+  <div class="case reveal">
+    <div class="case-meta">
+      <p class="case-num">Case 03</p>
+      <h3 class="case-client">Sazón</h3>
+      <p class="case-campaign">"Pipoca Neles"</p>
+      <p class="case-agency">Dentsu Creative · 2022</p>
+      <div class="case-tags">
+        <span class="tag">Campaign Strategy</span>
+        <span class="tag">Cultural Insight</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="case-block">
+        <p class="case-block-label">Context</p>
+        <p class="case-block-text">World Cup year. Every brand in Brazil was investing heavily in sponsorship and national team content. Sazón's popcorn seasoning had neither the budget nor the product fit to compete in that territory.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">The Problem</p>
+        <p class="case-block-text">Popcorn and football live in different universes. Football belongs to barbecue and beer. Popcorn belongs to pop culture and entertainment — not the game itself.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">Insight</p>
+        <p class="case-block-text large">In their pursuit of the sixth World Cup title, Brazilians root just as hard for their rivals to fail as they do for Brazil to win.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">Strategy</p>
+        <p class="case-block-text">Rather than competing in the crowded Brazil-wins narrative, we embraced the rival-fails conversation — the most entertaining, most Brazilian, and most popcorn-appropriate territory of the entire tournament.</p>
+      </div>
+      <div class="case-result">
+        <p class="case-result-label">Outcome</p>
+        <p class="case-result-text">A campaign that made Sazón relevant during the World Cup without a single sponsorship coin — by owning the conversation no other brand was brave enough to have.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 4: BMW M3 -->
+  <div class="case reveal">
+    <div class="case-meta">
+      <p class="case-num">Case 04</p>
+      <h3 class="case-client">BMW</h3>
+      <p class="case-campaign">M3 Competition Launch</p>
+      <p class="case-agency">Ogilvy Consulting · 2021</p>
+      <div class="case-tags">
+        <span class="tag">CRM Strategy</span>
+        <span class="tag">Luxury</span>
+        <span class="tag award">100% sold in 3 days</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="case-block">
+        <p class="case-block-label">Challenge</p>
+        <p class="case-block-text">Launch the BMW M3 Competition in Brazil — a high-performance, limited-availability luxury vehicle — exclusively through CRM, without mass media support.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">Approach</p>
+        <p class="case-block-text">Deep consumer profile analysis to identify the right segments within BMW's existing base. Precision messaging mapped to each stage of the purchase journey — building desire before availability, urgency at launch, exclusivity throughout.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">Strategy</p>
+        <p class="case-block-text large">Treat the CRM channel not as a distribution tool, but as an experience in itself — one worthy of the vehicle's positioning.</p>
+      </div>
+      <div class="case-result">
+        <p class="case-result-label">Result</p>
+        <p class="case-result-text">100% of the BMW M3 Competition stock sold through CRM alone, in 3 days. No mass media. Pure strategy, precision targeting, and the right message to the right person at the right moment.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 5: VW Nivus -->
+  <div class="case reveal">
+    <div class="case-meta">
+      <p class="case-num">Case 05</p>
+      <h3 class="case-client">Volkswagen</h3>
+      <p class="case-campaign">Nivus Pre-Launch</p>
+      <p class="case-agency">AlmapBBDO (Proximity) · 2020</p>
+      <div class="case-tags">
+        <span class="tag">CRM Strategy</span>
+        <span class="tag">Automotive</span>
+        <span class="tag award">17% conversion</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="case-block">
+        <p class="case-block-label">Challenge</p>
+        <p class="case-block-text">Launch the Volkswagen Nivus — a new SUV model — through a pre-sale CRM campaign, converting existing leads into buyers before the car was physically available in dealerships.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">Approach</p>
+        <p class="case-block-text">Redesign of VW's CRM base architecture and lead qualification rules. Construction of a full lead journey — from awareness to urgency to conversion — with automated messaging sequences built in Salesforce.</p>
+      </div>
+      <div class="case-block">
+        <p class="case-block-label">Strategy</p>
+        <p class="case-block-text large">Build desire through scarcity and belonging — making pre-launch buyers feel like insiders, not just early shoppers.</p>
+      </div>
+      <div class="case-result">
+        <p class="case-result-label">Result</p>
+        <p class="case-result-text">17% conversion rate. Entire pre-launch stock sold out in 22 minutes. One of the most successful automotive CRM launches in Brazil at the time.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">How I Work</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="approach-grid reveal">
+    <div class="approach-item">
+      <p class="approach-step">Step 01</p>
+      <h3 class="approach-heading">Diagnose<br>the real problem</h3>
+      <p class="approach-text">Most briefs describe symptoms, not problems. Before any strategy, I go upstream — to understand what's actually blocking the brand from where it needs to be. The diagnosis is the strategy.</p>
+    </div>
+    <div class="approach-item">
+      <p class="approach-step">Step 02</p>
+      <h3 class="approach-heading">Find the<br>human truth</h3>
+      <p class="approach-text">Strategy only works when it's rooted in how people actually think, feel and behave — not how we'd like them to. I look for the tension between brand truth and human truth. That gap is where the insight lives.</p>
+    </div>
+    <div class="approach-item">
+      <p class="approach-step">Step 03</p>
+      <h3 class="approach-heading">Build the<br>brief that unlocks</h3>
+      <p class="approach-text">A great brief gives the creative team two things at once: freedom and focus. It opens a space wide enough to surprise, and clear enough to know when the idea is right. That's the craft I've spent 10 years developing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <p class="exp-period">2025 – Present</p>
+      <div class="exp-right">
+        <p class="exp-role">Senior Brand Strategist</p>
+        <p class="exp-company">AlmapBBDO</p>
+        <p class="exp-clients">Livelo, Bradesco, Piracanjuba, CBL, CIF, Sylvamo, ELO</p>
+        <p class="exp-highlight">Integrated brand strategy from problem definition to creative implementation.</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <p class="exp-period">2022 – 2023</p>
+      <div class="exp-right">
+        <p class="exp-role">Strategy Manager</p>
+        <p class="exp-company">Dentsu Creative</p>
+        <p class="exp-clients">Subway, Intel, Sazón, Bimbo, Puma, Canon</p>
+        <p class="exp-highlight">★ Effie Shortlist: "Sub da Quebrada" (Subway) · "Pipoca Neles" (Sazón)</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <p class="exp-period">2021 – 2022</p>
+      <div class="exp-right">
+        <p class="exp-role">Strategy Manager</p>
+        <p class="exp-company">Havas Health & You</p>
+        <p class="exp-clients">Sanofi, AstraZeneca, Pfizer, Myralis, Bravecto</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <p class="exp-period">2021</p>
+      <div class="exp-right">
+        <p class="exp-role">CRM Strategy Manager</p>
+        <p class="exp-company">Ogilvy Consulting</p>
+        <p class="exp-clients">BMW, Syngenta, Grupo Tavares</p>
+        <p class="exp-highlight">★ BMW M3 Competition: 100% stock sold via CRM in 3 days.</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <p class="exp-period">2020 – 2021</p>
+      <div class="exp-right">
+        <p class="exp-role">CRM Strategy Supervisor</p>
+        <p class="exp-company">AlmapBBDO (Proximity)</p>
+        <p class="exp-clients">Volkswagen</p>
+        <p class="exp-highlight">★ VW Nivus pre-launch: 17% conversion, sold out in 22 minutes.</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <p class="exp-period">2019 – 2020</p>
+      <div class="exp-right">
+        <p class="exp-role">CRM Strategy Manager</p>
+        <p class="exp-company">SunsetDDB</p>
+        <p class="exp-clients">Samsung, Itaú, Fiat, Jeep</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <p class="exp-period">2017 – 2019</p>
+      <div class="exp-right">
+        <p class="exp-role">Strategy Supervisor</p>
+        <p class="exp-company">FCB Brasil</p>
+        <p class="exp-clients">Sky/DirecTV, Gomes da Costa, Mondelēz</p>
+        <p class="exp-highlight">Brand repositioning for Gomes da Costa · Oreo LATAM category expansion.</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <p class="exp-period">2016 – Present</p>
+      <div class="exp-right">
+        <p class="exp-role">Senior Brand Strategist</p>
+        <p class="exp-company">Freelance (FCB, BETC, Oliver, Fbiz, Narita)</p>
+        <p class="exp-clients">Kwai, Syngenta, CPFL, Continental, Oreo</p>
+        <p class="exp-highlight">★ Kwai: BBBom Pra Kwai — Effie Shortlist.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="contact-pre">Let's talk strategy</p>
+  <h2 class="contact-heading">Ready to<br><em>make things</em><br>happen.</h2>
+  <p class="contact-sub">EU citizen with a Portuguese passport. Based in São Paulo, available to relocate to Lisbon immediately. Open to senior strategy roles at creative agencies.</p>
+  <div class="contact-links">
+    <a href="mailto:filipe.balleste@gmail.com" class="contact-link primary">filipe.balleste@gmail.com</a>
+    <a href="https://linkedin.com/in/filballeste" target="_blank" class="contact-link">LinkedIn →</a>
+    <a href="tel:+5511938002199" class="contact-link">+55 11 938002199</a>
+  </div>
+</section>
+
+<footer>
+  <p>Filipe Ballesté · Brand Strategist · 2025</p>
+  <p>São Paulo → Lisbon</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav active state
+  const sections = document.querySelectorAll('section[id], div.hero');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id || 'hero';
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+</script>
+</body>
+</html>
